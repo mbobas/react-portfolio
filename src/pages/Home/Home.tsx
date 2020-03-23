@@ -17,7 +17,6 @@ const Header = styled.div`
 `;
 
 const HeaderText = styled.h1`
-  
   font-size: 48px;
   font-weight: 500;
   line-height: 60px;
@@ -26,6 +25,9 @@ const HeaderText = styled.h1`
 `;
 
 const ProjectWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 const ProjectHeader = styled.p`
   align-self: center;
@@ -42,6 +44,14 @@ class Home extends Component {
           </Header>
           <ProjectHeader>Projects</ProjectHeader>
           <ProjectWrapper>
+              <ProjectBox
+                projectname="Nextflix"
+                projecttext="test"
+              />
+              <ProjectBox
+                projectname="Nextflix"
+                projecttext="test"
+              />
               <ProjectBox
                 projectname="Nextflix"
                 projecttext="test"
