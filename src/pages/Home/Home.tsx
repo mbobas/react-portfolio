@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ProjectBox from './ProjectBox';
+import ProjectBox2 from './ProjectBox2';
 import autor from '../../assets/autor.png';
 import singlescreen from '../../assets/singlescreen.png';
 import myAvatarPNGSMALL from '../../assets/myAvatarPNGSMALL.png';
 import myAvatarPNG300 from '../../assets/myAvatarPNG300.png';
 import Background from '../../assets/background.png';
+import ProjectButton from './ProjectButton';
 
 const Wrapper = styled.div`
   display: flex;
@@ -86,10 +87,14 @@ const HeaderImage = styled.img`
 const WhoIWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 110vh;
   background-color: #7510F7;
   font-color: #FFF;
   align-items: center;
+  @media only screen and (min-width:max-width: 700px) {
+    margin-bottom: 20px;
+    min-height: 120vh;
+  }
   `;
 
 const WhoIHeaderText = styled.p`
@@ -109,7 +114,7 @@ const WhoIHeaderText = styled.p`
   }
   @media only screen and (max-width: 600px) {
     font-size: 25px;
-    width: 95s%;
+    width: 95%;
   }
 `;
 
@@ -135,64 +140,134 @@ const WhoISubText = styled.p`
 
 const KnowlageWrapper = styled.div`
   display: flex;
-  height: 100vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  min-height: 100vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
   border: 1px solid #E6ECF8;
   margin-top: -18vh;
   background-color: #FFF;
   border-radius: 10px;
-  flex: wrap;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 700px) {
+    display: flex;
+    min-height: 250vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: -18vh;
+    background-color: white;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    border: 0px solid #FFF;
+  }
 `;
 
 const KnowlageItemLeft = styled.div`
-  flex: 1;
   height: 100%;
+  flex: 1;
   border-right: 1px solid #E6ECF8;
   background-color: #FFF;
   border-radius: 10px 0px 0px 10px;
+  @media only screen and (max-width: 700px) {
+    height: 31%;
+    flex: 1;
+    min-width: 100%;
+    border: 1px solid #E6ECF8;
+    background-color: #FFF;
+    border-radius: 10px 10px 10px 10px;
+  }
 `;
+
 const KnowlageItemCenter = styled.div`
-  flex: 1;
   height: 100%;
+  flex: 1;
   background-color: #FFF;
+  @media only screen and (max-width: 700px) {
+    margin-top: 10px;
+    height: 31%;
+    flex: 1;
+    min-width: 100%;
+    border: 1px solid #E6ECF8;
+    background-color: #FFF;
+    border-radius: 10px 10px 10px 10px;
+
+  }
 `;
 const KnowlageItemRight = styled.div`
-  flex: 1;
   height: 100%;
+  flex: 1;
   border-left: 1px solid #E6ECF8;
   background-color: #FFF;
   border-radius: 0px 10px 10px 0px;
+  @media only screen and (max-width: 700px) {
+    height: 31%;
+    min-width: 300px;
+    border: 1px solid #E6ECF8;
+    background-color: #FFF;
+    border-radius: 10px 10px 10px 10px;
+  }
 `;
 
 
-
-
-
-const ProjectWrapper = styled.div`
-  flex-direction: column;
-  justify-content: space-between;
+const ProjectHeaderText = styled.p`
   align-self: center;
+  margin-top: 15vh;
+  width: 80%;
+  font-family: 'Exo';
+  font-weight: 800;
+  font-size: 32px !important;;
+  line-height: 1.125;
+  word-break: break-word;
+  text-align: center;
+  color: #141c3a;
+  @media only screen and (max-width: 400px) {
+    margin-top: 5vh;
+    font-size: 22px;
+    width: 95%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 25px;
+    width: 95%;
+  }
 `;
 
-const AboutWrapper = styled.div`
+const ProjectSubHeaderText = styled.div`
+  width: 99%;
+  font-family: 'Exo';
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #141c3a;
+  @media only screen and (max-width: 400px) {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
+`;
+
+const ProjectWrapperColumn = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
 `;
 
-const ProjectHeader = styled.p`
-  align-self: center;
-  font-size: 40px;
-  color: #333;
-`;
+
 
 const name = '<CV> Michal Gulczynski </CV>';
 const title = 'React Native and React, Mobile & Front-end Developer ';
 const subtitle = 'I like creates dreams true, and I love this work.'
 const whoititle ='Hi, I’m Michal. Nice to meet you.';
 const whoisubtitle ='Since beginning my journey as a freelance designer nearly 8 years ago, I have done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I am quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.';
+const projectHeader ='My Recent Work';
+const projectSubHeader ='Here are a few design projects Ive worked on recently. Want to see more? Email me.';
+
 
 class Home extends Component {
   render() {
@@ -208,35 +283,36 @@ class Home extends Component {
             <WhoISubText>{whoisubtitle}</WhoISubText>
           </WhoIWrapper>
           <KnowlageWrapper>
-              <KnowlageItemLeft></KnowlageItemLeft>
-              <KnowlageItemCenter></KnowlageItemCenter>
-              <KnowlageItemRight></KnowlageItemRight>
+              <KnowlageItemLeft>{whoisubtitle}{whoisubtitle}</KnowlageItemLeft>
+              <KnowlageItemCenter>{whoisubtitle}{whoisubtitle}</KnowlageItemCenter>
+              <KnowlageItemRight>{whoisubtitle}{whoisubtitle}</KnowlageItemRight>
           </KnowlageWrapper>
-          <AboutWrapper>
-            <ProjectBox
+
+          <ProjectHeaderText>{projectHeader}</ProjectHeaderText>
+          <ProjectSubHeaderText>{projectSubHeader}</ProjectSubHeaderText>
+
+          <ProjectWrapperColumn>
+            <ProjectButton
             projectname="Nextflix"
             projecttext="test"
             image={singlescreen}
             />
-          </AboutWrapper>
-          <ProjectHeader>Projects</ProjectHeader>
-          <ProjectWrapper>
-              <ProjectBox
-                projectname="Nextflix"
-                projecttext="test"
-                image={singlescreen}
-              />
-              <ProjectBox
-                projectname="Nextflix"
-                projecttext="test"
-                image={singlescreen}
-              />
-              <ProjectBox
-                projectname="Nextflix"
-                projecttext="test"
-                image={singlescreen}
-              />
-          </ProjectWrapper>
+            <ProjectButton
+            projectname="Nextflix"
+            projecttext="test"
+            image={singlescreen}
+            />
+            <ProjectButton
+            projectname="Nextflix"
+            projecttext="test"
+            image={singlescreen}
+            />
+            <ProjectButton
+            projectname="Nextflix"
+            projecttext="test"
+            image={singlescreen}
+            />
+          </ProjectWrapperColumn>
           
         </Wrapper>
     );
