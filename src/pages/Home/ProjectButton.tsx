@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 const Wrapper = styled.div`
 `;
 
@@ -16,13 +16,15 @@ const Image2 = styled.img`
 
 const ButtonBox = styled.button`
   margin-bottom: 20px; 
-  height: 250px;
-  width:  300px ;
+  height: 300px;
+  width:  360px;
   background-color: transparent;
   border-color: transparent;
   border-radius: 10px;
   outline: none;
 `;
+
+
 
 
 interface ProjectBox2Props {
@@ -39,10 +41,12 @@ class ProjectButton extends React.Component<ProjectBox2Props> {
   render() {
     return (
           <Wrapper>
-              <ButtonBox title="Button" onClick={this.shoot}>
+            <Link to='/contact'>
+              <ButtonBox title="Button">
                   <Image2 
                       src={this.props.image}/>
               </ButtonBox>
+              </Link>
           </Wrapper>
     );
   }

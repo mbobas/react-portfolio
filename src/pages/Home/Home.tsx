@@ -7,6 +7,8 @@ import myAvatarPNGSMALL from '../../assets/myAvatarPNGSMALL.png';
 import myAvatarPNG300 from '../../assets/myAvatarPNG300.png';
 import Background from '../../assets/background.png';
 import ProjectButton from './ProjectButton';
+import MyStartupButton from './MyStartupButton';
+import FooterCircles from './FooterCircles';
 
 const Wrapper = styled.div`
   display: flex;
@@ -258,6 +260,97 @@ const ProjectWrapperColumn = styled.div`
   margin-right: 15vw;
 `;
 
+const MyStartupWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  background-color: #7510F7;
+  font-color: #FFF;
+  align-items: center;
+  @media only screen and (max-width: 700px) {
+    margin-bottom: 20px;
+    min-height: 120vh;
+  }
+  `;
+
+const MyStartupHeaderText = styled.p`
+  margin-top: 15vh;
+  width: 99%;
+  font-family: 'Exo';
+  font-weight: 800;
+  font-size: 32px !important;;
+  line-height: 1.125;
+  word-break: break-word;
+  text-align: center;
+  color: #FFF;
+  @media only screen and (max-width: 400px) {
+    margin-top: 5vh;
+    font-size: 22px;
+    width: 95%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 25px;
+    width: 95%;
+  }
+`;
+
+const MyStartSubText = styled.p`
+  width: 50%;
+  font-family: 'Exo';
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #FFF;
+  font-weight: 300;
+  line-height: 1.5;
+  @media only screen and (max-width: 400px) {
+    font-size: 16px;
+    width:90%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 18px;
+    width:90%;
+  }
+`;
+
+const IamProudHeaderText = styled.p`
+  margin-top: 15vh;
+  width: 99%;
+  font-family: 'Exo';
+  font-weight: 800;
+  font-size: 32px !important;;
+  line-height: 1.125;
+  word-break: break-word;
+  text-align: center;
+  color: #000;
+  @media only screen and (max-width: 400px) {
+    margin-top: 5vh;
+    font-size: 22px;
+    width: 95%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 25px;
+    width: 95%;
+  }
+`;
+
+const MyStartupWrapperColumn = styled.div`
+  display: flex;
+  margin-top: -10vh;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 15vw;
+  margin-right: 15vw;
+`;
+
+const SeparatorLine = styled.div`
+  margin-top: 50px; 
+  width: 99vw;
+  border: 1px solid #00000021;
+`;
+
 
 
 const name = '<CV> Michal Gulczynski </CV>';
@@ -267,7 +360,9 @@ const whoititle ='Hi, I’m Michal. Nice to meet you.';
 const whoisubtitle ='Since beginning my journey as a freelance designer nearly 8 years ago, I have done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I am quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.';
 const projectHeader ='My Recent Work';
 const projectSubHeader ='Here are a few design projects Ive worked on recently. Want to see more? Email me.';
-
+const mystartup = 'My Startup Projects';
+const mystartuptext = 'Lorem ipsum lorem ipsumLorem ipsum lorem ipsumLorem ipsum lorem ipsum';
+const iamproudheader =' I am proud to I can colaborated with some awesome companies: \n Devleaders.pl';
 
 class Home extends Component {
   render() {
@@ -281,11 +376,13 @@ class Home extends Component {
           <WhoIWrapper>
             <WhoIHeaderText>{whoititle}</WhoIHeaderText>
             <WhoISubText>{whoisubtitle}</WhoISubText>
+            <FooterCircles></FooterCircles>
           </WhoIWrapper>
           <KnowlageWrapper>
               <KnowlageItemLeft>{whoisubtitle}{whoisubtitle}</KnowlageItemLeft>
               <KnowlageItemCenter>{whoisubtitle}{whoisubtitle}</KnowlageItemCenter>
               <KnowlageItemRight>{whoisubtitle}{whoisubtitle}</KnowlageItemRight>
+
           </KnowlageWrapper>
 
           <ProjectHeaderText>{projectHeader}</ProjectHeaderText>
@@ -314,6 +411,35 @@ class Home extends Component {
             />
           </ProjectWrapperColumn>
           
+          <MyStartupWrapper>
+            <MyStartupHeaderText>{mystartup}</MyStartupHeaderText>
+            <MyStartSubText>{mystartuptext}</MyStartSubText>
+          </MyStartupWrapper>
+          
+        <MyStartupWrapperColumn>
+          <MyStartupButton
+            projectname="CodeTutorials"
+            projecttext="CodeTutorials"
+            image={singlescreen}
+          />
+
+          <MyStartupButton
+            projectname="Nextflix"
+            projecttext="Nextflix"
+            image={singlescreen}
+          />
+
+          <MyStartupButton
+            projectname="PokmonAPI"
+            projecttext="PokmonAPI"
+            image={singlescreen}
+          />
+        
+        </MyStartupWrapperColumn>
+        <SeparatorLine />
+        
+        <IamProudHeaderText>{iamproudheader}</IamProudHeaderText>
+
         </Wrapper>
     );
   }

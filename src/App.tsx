@@ -58,20 +58,22 @@ class App extends Component {
   <Wrapper>
     <Router>
         <MenuWrapper>
-        <Link to={'/contact'} ><SayButton>Say Hello4</SayButton></Link>
+        <Link to={'/contact'} ><SayButton>Say Hello5</SayButton></Link>
         <Link to={'/projects'} ><MenuLink>Projects</MenuLink></Link>
         <Link to={'/'} > <MenuLink>Home</MenuLink> </Link>
         </MenuWrapper>
           <Switch>
-          <Route exact path="/" render={() => (
-                <Redirect to="/home"/>
-              )}/>
-              
-              <Route exact path='/home' component={Home} />
+              <Route exact path='/' component={Home} />
+              <Route path='/home' component={Home} />
               <Route path='/projects' component={Projects} />
               <Route path='/contact' component={Contact} />
+              <Route path='/github' component={() => { 
+                  window.location.href = 'https://github.com/mbobas'; 
+                  return null;
+              }}/>
           </Switch>
       </Router>
+      
   </Wrapper>
     );
   }
